@@ -85,9 +85,9 @@ class LNMarketsRest():
         headers = opts.get('headers')
 
         if method in ['GET', 'DELETE']:
-            response = request(method, ressource, headers = headers)
+            response = request(method, ressource, headers = headers, timeout=60)
         elif method in ['POST', 'PUT']:
-            response = request(method, ressource, data = json.dumps(params, separators=(',', ':')), headers = headers)
+            response = request(method, ressource, data = json.dumps(params, separators=(',', ':')), headers = headers, timeout=60)
         
         if format == 'json':
             return response.json()
